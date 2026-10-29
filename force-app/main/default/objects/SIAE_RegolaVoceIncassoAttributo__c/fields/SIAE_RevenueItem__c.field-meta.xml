@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIAE_RevenueItem__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>SIAE Voce Incasso</label>
+    <referenceTo>SIAE_VoceIncasso__c</referenceTo>
+    <relationshipLabel>SIAE Regole Voce Incasso Attributi</relationshipLabel>
+    <relationshipName>SIAE_Regole_Voce_Incasso_Attributi</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

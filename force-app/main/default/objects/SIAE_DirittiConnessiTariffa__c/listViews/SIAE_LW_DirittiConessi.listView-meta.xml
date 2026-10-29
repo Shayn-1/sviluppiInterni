@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIAE_LW_DirittiConessi</fullName>
+    <columns>SIAE_ConfigName__c</columns>
+    <columns>NAME</columns>
+    <columns>SIAE_DeviceType__c</columns>
+    <columns>SIAE_Amount__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>SIAE</label>
+</ListView>

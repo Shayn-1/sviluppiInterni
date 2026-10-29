@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIAE_BolloAmount__c</fullName>
+    <description>Importo fisso bollo</description>
+    <inlineHelpText>Importo fisso bollo</inlineHelpText>
+    <label>Importo Bollo</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

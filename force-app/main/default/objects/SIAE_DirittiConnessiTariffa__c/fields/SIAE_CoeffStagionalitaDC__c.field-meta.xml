@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIAE_CoeffStagionalitaDC__c</fullName>
+    <description>Coefficiente di stagionalità dei Diritti Connessi applicato in sostituzione del coefficiente Diritti d&apos;Autore quando la copertura è Annuale. Se vuoto la tariffa non è soggetta alla regola e resta il coefficiente Diritti d&apos;Autore. Per le coperture Semestrale e Trimestrale vedere rispettivamente SIAE_CoeffStagionalitaDC_Semestrale__c e SIAE_CoeffStagionalitaDC_Trimestrale__c.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Es. 0,70 per applicare il 70%. Lasciare vuoto se la tariffa non segue la stagionalità DC. Si applica solo su copertura Annuale.</inlineHelpText>
+    <label>Coefficiente Stagionalità DC Annuale</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

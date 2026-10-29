@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIAE_CilindrataMezzo__c</fullName>
+    <label>Cilindrata Mezzo</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Più di 1500cc</fullName>
+                <default>false</default>
+                <label>Più di 1500cc</label>
+            </value>
+            <value>
+                <fullName>Meno di 1500cc</fullName>
+                <default>false</default>
+                <label>Meno di 1500cc</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

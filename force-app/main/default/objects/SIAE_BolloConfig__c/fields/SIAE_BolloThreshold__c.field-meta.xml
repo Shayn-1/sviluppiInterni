@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIAE_BolloThreshold__c</fullName>
+    <description>Valore minimo imponibile IVA 0% per applicare il bollo</description>
+    <inlineHelpText>Valore minimo imponibile IVA 0% per applicare il bollo</inlineHelpText>
+    <label>Soglia Bollo</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

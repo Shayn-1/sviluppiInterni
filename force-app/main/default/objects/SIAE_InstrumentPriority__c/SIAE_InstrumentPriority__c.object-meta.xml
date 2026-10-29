@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Custom Setting utilizzato come configurazione generale di priorità degli attributi dispositivo per la risoluzione fallback dell’ID strumento SIAE.
+
+Quando un PaymentItem non ha instrumentId valorizzato, il motore recupera gli attributi presenti sull’OrderItem, li confronta con i record configurati in questo Custom Setting e seleziona il primo attributo disponibile in base alla priorità crescente. L’attributo selezionato viene poi usato per recuperare l’ID strumento dalla configurazione delle regole voci incasso.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Priorità Strumento</label>
+    <visibility>Public</visibility>
+</CustomObject>

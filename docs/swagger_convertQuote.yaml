@@ -1,0 +1,121 @@
+swagger: "2.0"
+info:
+  title: "SIAE Convert Quote API"
+  description: |
+    Endpoint REST per la conversione di un Preventivo (Quote) in un Ordine (Order) su Salesforce.
+    Prima di procedere con la conversione, verifica che tutti i flag di accettazione legale/GDPR
+    siano impostati a `true`. In caso contrario non viene eseguita alcuna operazione su Salesforce.
+  version: "1.0.0"
+
+basePath: "/services/apexrest/SIAE/convertQuote"
+schemes:
+  - "https"
+
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+paths:
+  /:
+    post:
+      summary: "Converti Quote in Order"
+      description: |
+        Converte la quote identificata da `quoteId` in un ordine salvando sull'ordine i 4 flag di accettazione e la data di accettazione.
+
+        **Precondizioni:**
+        - Tutti e 4 i flag booleani devono essere `true`. Se anche uno solo è `false`,
+          la chiamata restituisce **400** e nessuna operazione viene eseguita su Salesforce.
+        - `quoteId` e `acceptanceDate` sono obbligatori; la loro assenza restituisce **400**.
+      operationId: "convertQuote"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/ConvertQuoteRequest"
+      responses:
+        200:
+          description: "Quote convertita con successo. L'Order è stato creato e aggiornato."
+          schema:
+            $ref: "#/definitions/SuccessResponse"
+        400:
+          description: |
+            Bad Request. Campo obbligatorio mancante (`quoteId` o `acceptanceDate`),
+            formato della data non valido (atteso `YYYY-MM-DD`),
+            oppure almeno uno dei flag di accettazione è `false`.
+            Il messaggio indica quale flag non è stato accettato.
+            **Nessuna operazione viene eseguita su Salesforce.**
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        500:
+          description: |
+            Internal Server Error. Errore durante la conversione della quote
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+definitions:
+  ConvertQuoteRequest:
+    type: "object"
+    required:
+      - "quoteId"
+      - "generalCondition"
+      - "specialTerms"
+      - "dataTruthfulness"
+      - "consentGDPR"
+      - "acceptanceDate"
+    properties:
+      quoteId:
+        type: "string"
+        example: "0Q0xx000000XXXXAAA"
+        description: "Salesforce Quote ID (15 o 18 caratteri)"
+      generalCondition:
+        type: "boolean"
+        example: true
+        description: "Accettazione delle Condizioni Generali. Deve essere `true`."
+      specialTerms:
+        type: "boolean"
+        example: true
+        description: "Accettazione articoli 1341/1342 c.c. Deve essere `true`."
+      dataTruthfulness:
+        type: "boolean"
+        example: true
+        description: "Dichiarazione di veridicità dei dati inseriti. Deve essere `true`."
+      consentGDPR:
+        type: "boolean"
+        example: true
+        description: "Consenso al trattamento dati da parte di SIAE ai fini dell'esecuzione del contratto (GDPR). Deve essere `true`."
+      acceptanceDate:
+        type: "string"
+        format: "date"
+        example: "2026-05-05"
+        description: "Data di accettazione nel formato `YYYY-MM-DD`."
+
+  SuccessResponse:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+        example: true
+      orderId:
+        type: "string"
+        example: "801xx000000YYYYAAA"
+        description: "ID Salesforce dell'ordine creato."
+      errorMessage:
+        type: "string"
+        example: ""
+
+  ErrorResponse:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+        example: false
+      orderId:
+        type: "string"
+        example: null
+        description: "Sempre null in caso di errore."
+      errorMessage:
+        type: "string"
+        example: "The flag 'generalCondition' was not accepted."
+        description: "Descrizione dell'errore. In caso di flag non accettato specifica il nome del campo."

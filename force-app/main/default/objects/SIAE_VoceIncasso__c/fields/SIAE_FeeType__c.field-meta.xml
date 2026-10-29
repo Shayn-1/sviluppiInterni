@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIAE_FeeType__c</fullName>
+    <description>Distingue il diritto d&apos;autore DDA dal diritto connesso DC, consentendo calcoli separati.</description>
+    <label>SIAE Tipo Diritto</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DDA</fullName>
+                <default>true</default>
+                <label>DDA</label>
+            </value>
+            <value>
+                <fullName>DC</fullName>
+                <default>false</default>
+                <label>DC</label>
+            </value>
+            <value>
+                <fullName>QA</fullName>
+                <default>false</default>
+                <label>QA</label>
+            </value>
+            <value>
+                <fullName>SI_DDA</fullName>
+                <default>false</default>
+                <label>SI_DDA</label>
+            </value>
+            <value>
+                <fullName>SI_DC</fullName>
+                <default>false</default>
+                <label>SI_DC</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

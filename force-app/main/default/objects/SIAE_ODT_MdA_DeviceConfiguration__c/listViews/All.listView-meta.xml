@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>SIAE_CodiceLicenza__c</columns>
+    <columns>SIAE_Quantita__c</columns>
+    <columns>SIAE_Classificazione__c</columns>
+    <columns>SIAE_CilindrataMezzo__c</columns>
+    <columns>SIAE_FlatAudio__c</columns>
+    <columns>SIAE_FlatAudioVideo__c</columns>
+    <columns>SIAE_ApparecchioRadioFM__c</columns>
+    <columns>SIAE_AltriApparecchiAudioCD__c</columns>
+    <columns>SIAE_ApparecchiVideoTVDVD__c</columns>
+    <columns>SIAE_TVmenodi40pollici__c</columns>
+    <columns>SIAE_VideoJukebox__c</columns>
+    <columns>SIAE_Karaoke__c</columns>
+    <columns>SIAE_Jukebox__c</columns>
+    <columns>SIAE_NullPrice__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>
